@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Your Website</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+      body {
+    background-color: white;
+    scroll-behavior: smooth;
+  }
+  .navbar-custom {
+    background-color: white; /* Change the background color */
+    border-bottom: 2px solid white; /* Add a border at the bottom */
+  }
+  
+  .navbar-custom .navbar-brand {
+    color: white; /* Change the brand text color */
+  }
+  
+  .navbar-custom .navbar-brand img {
+    height: 50px; /* Adjust the logo height as needed */
+    width: auto; /* Ensure the logo width adjusts proportionally */
+    mix-blend-mode: darken;
+  }
+  
+  .navbar-custom .navbar-nav {
+    margin: 0 auto; /* Center the navigation links */
+    text-align: center; /* Align the text to center */
+  }
+  
+  .navbar-custom .navbar-nav .nav-item {
+    margin: 0 15px; /* Adjust the spacing between links */
+  }
+  
+  .navbar-custom .navbar-nav .nav-link {
+    color: black; /* Change the link text color */
+  }
+  
+  .navbar-custom .navbar-nav .nav-link:hover {
+    color: green; /* Change the link text color on hover */
+  }
+  
+  .navbar-custom .navbar-toggler-icon {
+    background-color: white; /* Change the color of the navbar toggle icon */
+  }
+  
+  .navbar-custom .navbar-toggler {
+    border-color: white; /* Change the border color of the navbar toggle button */
+  }
+  .btn-green{
+    background-color: green;
+    color: white;
+  }
+  
+  .hero-section {
+    position: relative;
+    height: 70vh;
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: url('images/close-up-young-business-team-working.jpg') center/cover no-repeat;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 100, 0, 0.5);
+  }
+  
+  .hero-section.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .display-4 {
+    font-size: 3em;
+    margin: 0;
+  }
+      
+  
+      .about-section {
+        background-color: #f4f4f4;
+        padding: 50px 0;
+    }
+  
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+  
+    .row {
+        display: flex;
+        align-items: center;
+    }
+  
+    .col-lg-6 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+  
+    .about-heading {
+        font-size: 2em;
+        color: #333;
+    }
+  
+    .about-content {
+        font-size: 1.2em;
+        color: #555;
+    }
+  
+    .about-image {
+        width: 100%;
+        border-radius: 8px;
+    }
+  
+    /* Initial state for fade-up animation */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  
+  .fade-up.in-view {
+      opacity: 1;
+      transform: translateY(0);
+  }
+  
+  .container {
+    margin-top: 50px;
+    margin-bottom: 30px;
+  }
+  
+  footer {
+    background-color: white; /* Footer background color */
+    color: black; /* Text color */
+    padding: 2px 0;
+  }
+  
+  .footer-columns {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .footer-column {
+    flex: 1;
+    margin-right: 15px; /* Adjust spacing between columns */
+  }
+  
+  .footer-bottom {
+    background-color: green; /* Footer bottom background color */
+    color: black; /* Text color */
+    padding: 10px 0;
+    text-align: center;
+  }
+  
+  .footer-bottom a {
+    color: black;
+    margin: 0 10px;
+  }
+  
+  .footer-logo {
+    max-width: 200px; /* Adjust the maximum width of the logo */
+    margin-bottom: 10px;
+    margin-right: 1px;
+  }
+  
+  .footer-links {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-links li {
+    margin-bottom: 5px;
+  }
+  
+  .footer-links i {
+    margin-right: 5px;
+  }
+  
+  .footer-links a {
+    color: black; /* Text color */
+  }
+  
+  .card {
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-body {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    font-weight: bold;
+  }
+  
+  input {
+    border-radius: 5px;
+  }
+  
+  button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff; /* Text color */
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+      .overlay-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 100, 0, 0.5); /* Adjust the alpha value for the overlay transparency */
+        color: #fff; /* Text color on the overlay */
+        display: flex;
+        align-items: center;
+        justify-content: flex-start; /* Align text to the left */
+    }
+  .fade-up {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  
+  .fade-up.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Adjust the image size and styling as needed */
+  .section-image {
+    background-size: cover;
+    background-position: center;
+    height: 500px;
+    position: relative;
+    color: #fff;
+    text-align: center;
+  }
+  
+  /* Style the heading and text */
+  .section-content {
+    padding: 40px;
+    text-align: left;
+  }
+  
+  .section-content h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+  }
+  
+  .section-content p {
+    font-size: 1.2em;
+    float: left;
+    width: 30%;
+  }
+  
+    
+    </style>
+</head>
+<body>
+<div class="hero-section fade-up">
+  <div class="overlay"></div>
+  <div class="container">
+      <div class="hero-text">
+          <h1 class="display-4">About us</h1>
+      </div>
+  </div>
+</div>
+    <nav class="navbar navbar-expand-md fixed-top navbar-custom">
+        <a class="navbar-brand" href="#">
+          <img src="images/internee logo.jpg" alt="Your Logo"> <!-- Replace "your-logo.png" with your actual logo path -->
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a style="color: green;" class="nav-link" href="home.html">Home <span class="sr-only">(current)</span></a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="internship.html">Internships</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="lms.html">LMS</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="job.html">Job Portal</a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="btn btn-green" href="portal.html" role="button">Internee Portal</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <section class="about-section fade-up">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h2 class="about-heading">Introducing Internee.pk</h2>
+                    <p class="about-content">
+                        The ultimate platform designed to turbocharge the IT sector in Pakistan! We recognize the immense potential of talented individuals in the country and aim to bridge the gap between them and the thriving IT industry. Internee.pk offers a comprehensive range of virtual internship opportunities exclusively in the IT field.
+                    </p>
+                </div>
+                <div class="col-lg-6">
+                    <img src="images/horizontal-shot-happy-mixed-race-females.jpg" alt="Company Image" class="about-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <div class="section-image fade-up" style="background-image: url('images/millennial-group-young-businesspeople.jpg');">
+        <div class="overlay-image">
+            <div class="section-content">
+                <h1>Internships every month</h1>
+                <p>Introducing Internee.pk, the ultimate platform designed to turbocharge the IT sector in Pakistan! We recognize the immense potential of talented individuals in the country and aim to bridge the gap between them and the thriving IT industry. Internee.pk offers a comprehensive range of virtual internship opportunities exclusively in the IT field.</p>
+            </div>
+        </div>
+    </div>
+
+<footer data-os="fade-up">
+  <div class="container">
+      <div class="footer-columns">
+          <!-- Column 1 -->
+          <div class="footer-column">
+              <img src="images/internee logo.jpg" alt="Your Logo" class="footer-logo">
+              
+              <ul class="footer-links">
+                  <li><i class="fas fa-globe"></i><a href="www.internee.pk">www.internee.pk</a></li>
+                  <li><i class="fas fa-phone"></i><a href="tel:+1234567890">+123 456 7890</a></li>
+                  <li><i class="fas fa-envelope"></i><a href="mailto:info@internee.pk">info@internee.pk</a></li>
+              </ul>
+          </div>
+
+          <!-- Column 2 -->
+          <div class="footer-column">
+              <h4>Company</h4>
+              <ul class="footer-links">
+                  <li><a href="#">Home</a></li>
+                  <li><a href="#">Internships</a></li>
+                  <li><a href="#">Contact</a></li>
+              </ul>
+          </div>
+
+          <!-- Column 3 -->
+          <div class="footer-column">
+              <h4>Resources</h4>
+              <ul class="footer-links">
+                  <li><a href="#">Resources</a></li>
+                  <li><a href="#">Discord Server</a></li>
+                  <li><a href="#">Blog</a></li>
+                  <li><a href="#">Podcast</a></li>
+              </ul>
+          </div>
+
+          <!-- Column 4 - Newsletter Form -->
+          <div class="footer-column">
+              
+              <div class="card">  
+                  <div class="card-body">
+                      <form>
+                          <div class="form-group">
+                              <label for="email">Email address</label>
+                              <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                          </div>
+                          <button type="submit" class="btn btn-primary">Subscribe</button>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <!-- Footer Bottom -->
+  <div class="footer-bottom">
+    <!-- Social Media Icons with Links -->
+    <div>
+      <a href="https://www.instagram.com/internee.pk/" target="_blank">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://twitter.com/Internee_pk" target="_blank">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/internee-pk-1ba44a276/" target="_blank">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="https://www.facebook.com/people/Internee-Pk/pfbid0vbi5B4aza1q2HVkmeKtzKSRYNGcUwWQZenQKEVMDJLFjwQJpz5XkmryHcwEpmCXLl/" target="_blank">
+        <i class="fab fa-facebook"></i>
+      </a>
+      <a href="https://www.youtube.com/channel/UCKmNYb6PiShShRf-ZI2O8Ag" target="_blank">
+        <i class="fab fa-youtube"></i>
+      </a>
+    </div>
+    <p>&copy; 2023 Your Website. All rights reserved.</p>
+  </div>
+</footer>
+
+
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+</script>
+<script src="path/to/aos.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        AOS.init({
+            duration: 800, // Adjust the duration of the animation
+            once: false, // Allow animation to occur multiple times
+        });
+
+        // Add a class to the hero-section, about-section, and section-image when scrolling down
+        function checkScroll() {
+            var heroSection = document.querySelector('.hero-section');
+            var aboutSection = document.querySelector('.about-section');
+            var sectionImage = document.querySelector('.section-image');
+            var footer = document.querySelector('footer');
+            var footerBottom = document.querySelector('.footer-bottom');
+
+            // Check hero-section
+            var heroBounding = heroSection.getBoundingClientRect();
+            if (heroBounding.top >= 0) {
+                heroSection.classList.add('in-view');
+            } else {
+                heroSection.classList.remove('in-view');
+            }
+
+            // Check about-section
+            var aboutBounding = aboutSection.getBoundingClientRect();
+            if (aboutBounding.top >= 0) {
+                aboutSection.classList.add('in-view');
+            } else {
+                aboutSection.classList.remove('in-view');
+            }
+
+            // Check section-image
+            var sectionImageBounding = sectionImage.getBoundingClientRect();
+            if (sectionImageBounding.top >= 0) {
+                sectionImage.classList.add('in-view');
+            } else {
+                sectionImage.classList.remove('in-view');
+            }
+            var footerBounding = footer.getBoundingClientRect();
+            if (footerBounding.top >= 0) {
+                footer.classList.add('in-view');
+            } else {
+                footer.classList.remove('in-view');
+            }
+            var footerBottomBounding = footerBottom.getBoundingClientRect();
+            if (footerBottomBounding.top <= window.innerHeight && footerBottomBounding.bottom >= 0) {
+                footerBottom.classList.add('in-view');
+            } else {
+                footerBottom.classList.remove('in-view');
+            }
+        }
+
+        // Check on page load
+        checkScroll();
+
+        // Check on scroll
+        window.addEventListener('scroll', checkScroll);
+
+        // Manually trigger AOS refresh after new content is added
+        
+    });
+</script>
+</body>
+</html>
